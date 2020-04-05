@@ -21,6 +21,9 @@ import static org.testng.Assert.assertEquals;
  * Test for registration and login on the portal
  */
 public class UserChromeTest {
+    public static final String TEST_GMAIL = "test@gmail.com";
+    public static final String FIRST_LAST_AND_PASSWORD = "test";
+    public static final String WWW_NEWTOURS_DEMOAUT_COM = "http://www.newtours.demoaut.com/";
     private WebDriver driver;
 
     @BeforeClass
@@ -29,7 +32,7 @@ public class UserChromeTest {
         ChromeOptions chromeOptions = new ChromeOptions();
         driver = new ChromeDriver(chromeOptions);
         // Opens a website hosted on below machine
-        driver.get("http://www.newtours.demoaut.com/");
+        driver.get(WWW_NEWTOURS_DEMOAUT_COM);
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
     }
@@ -39,19 +42,19 @@ public class UserChromeTest {
         //Registration
         driver.findElement(By.xpath("/html/body/div/table/tbody/tr/td[2]/table/tbody/tr[4]/td/table/tbody/tr/td[2]/table/tbody/tr[2]/td[3]/form/table/tbody/tr[10]/td/table/tbody/tr/td[2]/font/a")).click();
         //Registration form
-        driver.findElement(By.name("firstName")).sendKeys("test");
-        driver.findElement(By.name(("lastName"))).sendKeys("test");
+        driver.findElement(By.name("firstName")).sendKeys(FIRST_LAST_AND_PASSWORD);
+        driver.findElement(By.name(("lastName"))).sendKeys(FIRST_LAST_AND_PASSWORD);
         driver.findElement(By.name(("phone"))).sendKeys("352463434");
-        driver.findElement(By.xpath(("//*[@id=\"userName\"]"))).sendKeys("test@gmail.com");
+        driver.findElement(By.xpath(("//*[@id=\"userName\"]"))).sendKeys(TEST_GMAIL);
         driver.findElement(By.name("address1")).sendKeys("christiana mall");
         driver.findElement(By.name("city")).sendKeys("Newark");
         driver.findElement(By.name("state")).sendKeys("Delaware");
         driver.findElement(By.name("postalCode")).sendKeys("19702");
         Select select = new Select(driver.findElement(By.name("country")));
         select.selectByVisibleText("UNITED STATES");
-        driver.findElement(By.xpath("//*[@id=\"email\"]")).sendKeys("test@gmail.com");
-        driver.findElement(By.name("password")).sendKeys("test");
-        driver.findElement(By.name("confirmPassword")).sendKeys("test");
+        driver.findElement(By.xpath("//*[@id=\"email\"]")).sendKeys(TEST_GMAIL);
+        driver.findElement(By.name("password")).sendKeys(FIRST_LAST_AND_PASSWORD);
+        driver.findElement(By.name("confirmPassword")).sendKeys(FIRST_LAST_AND_PASSWORD);
         driver.findElement(By.xpath("/html/body/div/table/tbody/tr/td[2]/table/tbody/tr[4]/td/table/tbody/tr/td[2]/table/tbody/tr[5]/td/form/table/tbody/tr[18]/td/input")).click();
         WebDriverWait wait = new WebDriverWait(driver, 20);
         //Wait till the sign off element is visible
@@ -76,8 +79,8 @@ public class UserChromeTest {
         Thread.sleep(1000);
         driver.findElement(By.xpath("/html/body/div/table/tbody/tr/td[2]/table/tbody/tr[4]/td/table/tbody/tr/td[2]/table/tbody/tr[5]/td/form/p/input")).click();
         Thread.sleep(1000);
-        driver.findElement(By.xpath("/html/body/div/table/tbody/tr/td[2]/table/tbody/tr[4]/td/table/tbody/tr/td[2]/table/tbody/tr[5]/td/form/table/tbody/tr[4]/td/table/tbody/tr[2]/td[1]/input")).sendKeys("test");
-        driver.findElement(By.xpath("/html/body/div/table/tbody/tr/td[2]/table/tbody/tr[4]/td/table/tbody/tr/td[2]/table/tbody/tr[5]/td/form/table/tbody/tr[4]/td/table/tbody/tr[2]/td[2]/input")).sendKeys("test");
+        driver.findElement(By.xpath("/html/body/div/table/tbody/tr/td[2]/table/tbody/tr[4]/td/table/tbody/tr/td[2]/table/tbody/tr[5]/td/form/table/tbody/tr[4]/td/table/tbody/tr[2]/td[1]/input")).sendKeys(FIRST_LAST_AND_PASSWORD);
+        driver.findElement(By.xpath("/html/body/div/table/tbody/tr/td[2]/table/tbody/tr[4]/td/table/tbody/tr/td[2]/table/tbody/tr[5]/td/form/table/tbody/tr[4]/td/table/tbody/tr[2]/td[2]/input")).sendKeys(FIRST_LAST_AND_PASSWORD);
         driver.findElement(By.xpath("/html/body/div/table/tbody/tr/td[2]/table/tbody/tr[4]/td/table/tbody/tr/td[2]/table/tbody/tr[5]/td/form/table/tbody/tr[6]/td/table/tbody/tr[2]/td[2]/input")).sendKeys("234626234");
         driver.findElement(By.xpath("/html/body/div/table/tbody/tr/td[2]/table/tbody/tr[4]/td/table/tbody/tr/td[2]/table/tbody/tr[5]/td/form/table/tbody/tr[23]/td/input")).click();
         Thread.sleep(1000);
