@@ -1,1 +1,8 @@
 Automated tests for website: http://www.newtours.demoaut.com/
+
+Technical Requirement:
+1)Create the Selenium Script to Register/Login on the portal
+2)Create the Selenium Script to test out the flight bookingfunctionality
+3)Create the Selenium Script to test out the cruisebooking functionality
+4)Write the Selenium Script to test out the broken links/functionality
+5)Automate the build and deployment of tests and report generation using Jenkins
