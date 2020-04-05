@@ -5,4 +5,9 @@ node {
     stage ('Selenium tests') {
         sh "mvn clean install"
     }
+    post {
+        always {
+            step([$class: 'Publisher', reportFilenamePattern: '**/testng-results.xml'])
+        }
+    }
 }
