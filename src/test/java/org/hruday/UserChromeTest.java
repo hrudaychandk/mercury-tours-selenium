@@ -28,8 +28,11 @@ public class UserChromeTest {
 
     @BeforeClass
     private void setup() {
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\hkatakam\\Downloads\\chromedriver_win32\\chromedriver.exe");
+        //System.setProperty("webdriver.chrome.driver", "C:\\Users\\hkatakam\\Downloads\\chromedriver_win32\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver");
         ChromeOptions chromeOptions = new ChromeOptions();
+        chromeOptions.addArguments("headless");
+        chromeOptions.addArguments("--no-sandbox");
         driver = new ChromeDriver(chromeOptions);
         // Opens a website hosted on below machine
         driver.get(WWW_NEWTOURS_DEMOAUT_COM);
@@ -128,6 +131,7 @@ public class UserChromeTest {
         String expectedTitle = "Sign-on: Mercury Tours";
         assertEquals(expectedTitle, actualTitle);
     }
+    
     // The below function verifyLink(String urlLink) verifies any broken links and return the server status.
     private void verifyLink(String urlLink) {
         try {
