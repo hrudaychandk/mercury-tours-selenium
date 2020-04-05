@@ -6,8 +6,7 @@
     <test name="user">
 
         <classes>
-            <class name="org.hruday.RegistrationAndLoginTest"/>
-            <class name="org.hruday.FlightBookingTest"/>
+            <class name="org.hruday.UserChromeTest"/>
         </classes>
 
     </test>
