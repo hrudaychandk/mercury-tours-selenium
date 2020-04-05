@@ -4,7 +4,7 @@ node {
     }
     stage ('Selenium tests') {
         dir("mercury-tours-selenium") {
-            sh “mvn clean install”
+            sh "mvn clean install"
         }
     }
 }
